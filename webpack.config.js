@@ -59,7 +59,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
         loaders: ['url-loader?limit=100000&name=images/[hash:12].[ext]'],
         exclude: /node_modules/
       },

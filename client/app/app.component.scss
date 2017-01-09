@@ -1,4 +1,2 @@
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-body {
-  background-color: lightblue;
-}
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
