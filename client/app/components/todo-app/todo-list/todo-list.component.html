@@ -1,4 +1,4 @@
 <h1>Todo List</h1>
 <div class="todo-list">
-  <todo ng-repeat="todo in $ctrl.todos" todo="todo"></todo>
+  <todo ng-repeat="todo in $ctrl.todos track by $index" todo="todo" index="{{$index}}"></todo>
 </div>

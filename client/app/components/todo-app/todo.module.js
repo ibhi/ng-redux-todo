@@ -16,7 +16,8 @@ export default angular.module('app.todo', [])
     template: require('./todo/todo.component.html'),
     controller: Todo,
     bindings: {
-      todo: '<'
+      todo: '<',
+      index: '@'
     }
   })
   .component('addTodo', {
