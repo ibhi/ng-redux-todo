@@ -9,8 +9,8 @@ export class AddTodo {
 
   addTodo() {
     console.log('add-todo-comp');
-    // this.onAddTodo({todo: Object.assign({}, this.newTodo)});
-    todoStore.dispatch(actions.addTodo(this.newTodo.text));
+    this.onAddTodo({text: this.newTodo.text});
+    // todoStore.dispatch(actions.addTodo(this.newTodo.text));
     this.newTodo.text = '';
   }
 }

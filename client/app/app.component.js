@@ -1,26 +1,30 @@
 import './app.component.scss';
 import { todoStore } from './store/todos.store';
+import todoActions from './actions/todos.actions';
+console.log(todoActions);
 
 export class AppComponent {
-  // todos = [{
-  //   text: 'Buy Milk',
-  //   completed: false
-  // },  {
-  //   text: 'Go Shopping',
-  //   completed: true
-  // }, {
-  //   text: 'Buy Groceris',
-  //   completed: false
-  // }];
+  
   unsubscribe;
+  constructor($ngRedux) {
+    this.unsubscribe = $ngRedux.connect(this.mapStateToThis, todoActions)(this);
+  }
+
+  mapStateToThis(state) {
+    console.log('State ', state);
+    return {
+      todos: state
+    };
+  }
 
   $onInit() {
-    this.todos = todoStore.getState();
+    // this.todos = todoStore.getState();
 
-    this.unsubscribe = todoStore.subscribe(() => {
-      this.todos = todoStore.getState();
-      console.log(this.todos);
-    });
+    // this.unsubscribe = todoStore.subscribe(() => {
+    //   this.todos = todoStore.getState();
+    //   console.log(this.todos);
+    // });
+    console.log(this.addTodo);
   }
 
   // addTodo(todo) {

@@ -1,5 +1,4 @@
 import angular from 'angular';
-import { TodoComponent } from './todo.component';
 import { TodoList } from './todo-list/todo-list.component';
 import { Todo } from './todo/todo.component';
 import { AddTodo } from './add-todo/add-todo.component';
@@ -9,7 +8,8 @@ export default angular.module('app.todo', [])
     template: require('./todo-list/todo-list.component.html'),
     controller: TodoList,
     bindings: {
-      todos: '<'
+      todos: '<',
+      onToggleTodo: '&'
     }
   })
   .component('todo', {
@@ -17,7 +17,8 @@ export default angular.module('app.todo', [])
     controller: Todo,
     bindings: {
       todo: '<',
-      index: '@'
+      index: '@',
+      onToggleTodo: '&'
     }
   })
   .component('addTodo', {
