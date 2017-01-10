@@ -8,7 +8,7 @@ const initialState = [{
   text: 'Go Shopping',
   completed: true
 }, {
-  text: 'Buy Groceris',
+  text: 'Read about redux',
   completed: false
 }];
 

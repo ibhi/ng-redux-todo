@@ -17,7 +17,7 @@ var entry = PRODUCTION
         'webpack-dev-server/client?http://localhost:8080'
       ];
 
-var sourcemap = PRODUCTION ? '' : 'source-map';
+var sourcemap = PRODUCTION ? null : 'source-map';
 
 var plugins = PRODUCTION 
   ?   [
