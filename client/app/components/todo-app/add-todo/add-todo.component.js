@@ -1,11 +1,10 @@
-import { todoStore } from './../../../store/todos.store';
-import actions from './../../../actions/todos.actions';
-
 export class AddTodo {
-  newTodo = {
-    text: '',
-    completed: false
-  };
+  constructor() {
+    this.newTodo = {
+      text: '',
+      completed: false
+    };
+  }
 
   addTodo() {
     console.log('add-todo-comp');
@@ -14,5 +13,3 @@ export class AddTodo {
     this.newTodo.text = '';
   }
 }
-
-  

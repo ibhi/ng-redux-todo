@@ -40,6 +40,16 @@ var plugins = PRODUCTION
         new webpack.HotModuleReplacementPlugin()
       ];
 
+// plugins.push(
+//   new webpack.LoaderOptionsPlugin({
+//     options: {
+//       jshint: {
+//           esversion: 6
+//       }
+//     }
+//   })
+// );
+
 var cssLoader = PRODUCTION 
   ?   ExtractTextPlugin.extract({
         loader: 'css-loader?minimize&colormin!sass-loader',
@@ -52,20 +62,26 @@ module.exports = {
   entry: entry, // It can be a just a string of file name as well
   plugins: plugins,
   module: {
-    loaders: [
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/, // include .js files
+        exclude: /node_modules/, // exclude any and all files in the node_modules folder
+        loader: 'eslint-loader',
+      },
       {
         test: /.\js$/,
-        loaders: ['babel-loader'],
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loaders: ['url-loader?limit=100000&name=images/[hash:12].[ext]'],
+        use: ['url-loader?limit=100000&name=images/[hash:12].[ext]'],
         exclude: /node_modules/
       },
       {
         test: /.\html$/,
-        loaders: ['raw-loader'],
+        loader: 'raw-loader',
         exclude: /node_modules/
       },
       {
