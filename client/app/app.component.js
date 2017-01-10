@@ -2,7 +2,7 @@ import './app.component.scss';
 import todoActions from './actions/todos.actions';
 
 export class AppComponent {
-
+  // static $inject = ['$ngRedux'];
   constructor($ngRedux) {
     this.unsubscribe = $ngRedux.connect(this.mapStateToThis, todoActions)(this);
   }
@@ -10,17 +10,10 @@ export class AppComponent {
   mapStateToThis(state) {
     console.log('State ', state);
     return {
-      todos: state
+      todos: state.todos,
+      visibilityFilter: state.visibilityFilter
     };
   }
-
-  $onInit() {
-    console.log(this.addTodo);
-  }
-
-  // addTodo(todo) {
-  //   this.todos.push(todo);
-  // }
 
   $onDestroy() {
     this.unsubscribe();

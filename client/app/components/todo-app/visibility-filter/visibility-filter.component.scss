@@ -1,0 +1,11 @@
+.todo-filters {
+  list-style: none;
+  padding-left: 10px;
+  .todo-filter {
+    display: inline-block;
+    padding-left: 10px;
+    &::first-child {
+      padding-left: 0px;
+    }
+  }
+}

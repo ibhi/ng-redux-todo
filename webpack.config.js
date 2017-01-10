@@ -40,16 +40,6 @@ var plugins = PRODUCTION
         new webpack.HotModuleReplacementPlugin()
       ];
 
-// plugins.push(
-//   new webpack.LoaderOptionsPlugin({
-//     options: {
-//       jshint: {
-//           esversion: 6
-//       }
-//     }
-//   })
-// );
-
 var cssLoader = PRODUCTION 
   ?   ExtractTextPlugin.extract({
         loader: 'css-loader?minimize&colormin!sass-loader',

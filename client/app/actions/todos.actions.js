@@ -1,17 +1,18 @@
 import { TODOS } from './../constants/todos.constants';
 
-function addTodo(text) {
-  return {
-    type: TODOS.ADD_TODO,
-    text
-  };
-}
+const addTodo = text => ({
+  type: TODOS.ADD_TODO,
+  text
+});
 
-function toggleTodo(index) {
-  return {
-    type: TODOS.TOGGLE_TODO,
-    index
-  };
-}
+const toggleTodo = index => ({
+  type: TODOS.TOGGLE_TODO,
+  index
+});
 
-export default { addTodo, toggleTodo };
+const setVisibilityFilter = filter => ({
+  type: TODOS.SET_VISIBILITY_FILTER,
+  filter
+});
+
+export default { addTodo, toggleTodo, setVisibilityFilter };

@@ -1,18 +1,24 @@
 /* jshint -W138 */
+import { combineReducers } from 'redux';
 import { TODOS } from './../constants/todos.constants';
 
-const initialState = [{
-  text: 'Buy Milk',
-  completed: false
-}, {
-  text: 'Go Shopping',
-  completed: true
-}, {
-  text: 'Read about redux',
-  completed: false
-}];
+const initialState = {
+  todos: [
+    {
+      text: 'Buy Milk',
+      completed: false
+    }, {
+      text: 'Go Shopping',
+      completed: true
+    }, {
+      text: 'Read about redux',
+      completed: false
+    }
+  ],
+  visibilityFilter: 'show_all'
+}
 
-export function todosReducer(state = initialState, action) {
+function todos(state = initialState.todos, action) {
   switch (action.type) {
     case TODOS.ADD_TODO:
       return [...state, { text: action.text, completed: false }];
@@ -27,3 +33,19 @@ export function todosReducer(state = initialState, action) {
       return state;
   }
 }
+
+function visibilityFilter(state = initialState.visibilityFilter, action) {
+  switch (action.type) {
+    case TODOS.SET_VISIBILITY_FILTER:
+      return action.filter;
+    default:
+      return state;
+  }
+}
+
+const todoApp = combineReducers({
+  todos,
+  visibilityFilter
+});
+
+export default todoApp;

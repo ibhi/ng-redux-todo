@@ -3,12 +3,12 @@ import ngRedux from 'ng-redux';
 import createLogger from 'redux-logger';
 import todoModule from './components/todo-app/todo.module';
 import { AppComponent } from './app.component';
-import { todosReducer } from './reducers/todos.reducers';
+import todoApp from './reducers/todos.reducers';
 
 angular.module('app', [todoModule, ngRedux])
   .config(($ngReduxProvider) => {
     const logger = createLogger();
-    $ngReduxProvider.createStoreWith(todosReducer, [logger], [window.__REDUX_DEVTOOLS_EXTENSION__()]);
+    $ngReduxProvider.createStoreWith(todoApp, [logger], [window.__REDUX_DEVTOOLS_EXTENSION__()]);
   })
   .run(($ngRedux, $rootScope, $timeout) => {
     // To reflect state changes when disabling/enabling actions via the monitor

@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
-import { todosReducer } from './../reducers/todos.reducers';
+import todoApp from './../reducers/todos.reducers';
 
-export let todoStore = createStore(todosReducer);
+export let todoStore = createStore(todoApp);
