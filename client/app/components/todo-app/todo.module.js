@@ -9,7 +9,7 @@ export default angular.module('app.todo', [])
     controller: TodoList,
     bindings: {
       todos: '<',
-      onToggleTodo: '&'
+      onToggleTodo: '='
     }
   })
   .component('todo', {
@@ -18,7 +18,7 @@ export default angular.module('app.todo', [])
     bindings: {
       todo: '<',
       index: '@',
-      onToggleTodo: '&'
+      onToggleTodo: '='
     }
   })
   .component('addTodo', {

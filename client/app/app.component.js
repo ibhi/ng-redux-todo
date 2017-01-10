@@ -18,12 +18,6 @@ export class AppComponent {
   }
 
   $onInit() {
-    // this.todos = todoStore.getState();
-
-    // this.unsubscribe = todoStore.subscribe(() => {
-    //   this.todos = todoStore.getState();
-    //   console.log(this.todos);
-    // });
     console.log(this.addTodo);
   }
 
