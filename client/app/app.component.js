@@ -1,18 +1,6 @@
 import './app.component.scss';
 import todoActions from './actions/todos.actions';
-
-const getVisibleTodos = (state) => {
-  switch (state.visibilityFilter) {
-    case 'show_all':
-      return state.todos;
-    case 'show_completed':
-      return state.todos.filter(todo => todo.completed);
-    case 'show_active':
-      return state.todos.filter(todo => !todo.completed);
-    default:
-      return state.todos;
-  }
-};
+import { getVisibleTodos } from './selectors/todos.selectors';
 
 export class AppComponent {
   // static $inject = ['$ngRedux'];
