@@ -1,27 +1,31 @@
-/* jshint -W138 */
 import { combineReducers } from 'redux';
 import { TODOS } from './../constants/todos.constants';
 
 const initialState = {
-  todos: [
-    {
-      text: 'Buy Milk',
-      completed: false
-    }, {
-      text: 'Go Shopping',
-      completed: true
-    }, {
-      text: 'Read about redux',
-      completed: false
-    }
-  ],
+  isFetching: false,
+  error: null,
+  todos: [],
   visibilityFilter: 'show_all'
+}
+
+function isFetching(state = initialState.isFetching, action) {
+  if (action.type === TODOS.REQUEST_TODOS) {
+    return true;
+  }
+  return false;
+}
+
+function error(state = initialState.error, action) {
+  if (action.type === TODOS.RECIEVE_ERROR) {
+    return action.error;
+  }
+  return null;
 }
 
 function todos(state = initialState.todos, action) {
   switch (action.type) {
     case TODOS.ADD_TODO:
-      return [...state, { text: action.text, completed: false }];
+      return [...state, { title: action.title, completed: false }];
     case TODOS.TOGGLE_TODO:
       return state.map((todo, index) => {
         if (action.index === index) {
@@ -29,6 +33,8 @@ function todos(state = initialState.todos, action) {
         }
         return todo;
       });
+    case TODOS.RECIEVE_TODOS:
+      return action.todos;
     default:
       return state;
   }
@@ -44,6 +50,8 @@ function visibilityFilter(state = initialState.visibilityFilter, action) {
 }
 
 const todoApp = combineReducers({
+  isFetching,
+  error,
   todos,
   visibilityFilter
 });

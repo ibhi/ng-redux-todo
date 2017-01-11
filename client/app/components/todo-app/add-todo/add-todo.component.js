@@ -1,15 +1,15 @@
 export class AddTodo {
   constructor() {
     this.newTodo = {
-      text: '',
+      title: '',
       completed: false
     };
   }
 
   addTodo() {
     console.log('add-todo-comp');
-    this.onAddTodo({text: this.newTodo.text});
+    this.onAddTodo({title: this.newTodo.title});
     // todoStore.dispatch(actions.addTodo(this.newTodo.text));
-    this.newTodo.text = '';
+    this.newTodo.title = '';
   }
 }

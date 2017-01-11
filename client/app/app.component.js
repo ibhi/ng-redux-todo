@@ -1,5 +1,5 @@
 import './app.component.scss';
-import todoActions from './actions/todos.actions';
+import * as todoActions from './actions/todos.actions';
 import { getVisibleTodos } from './selectors/todos.selectors';
 
 export class AppComponent {
@@ -8,9 +8,14 @@ export class AppComponent {
     this.unsubscribe = $ngRedux.connect(this.mapStateToThis, todoActions)(this);
   }
 
+  $onInit() {
+    this.fetchTodos();
+  }
+
   mapStateToThis(state) {
-    console.log('State ', state);
     return {
+      isFetching: state.isFetching,
+      error: state.error,
       todos: getVisibleTodos(state),
       visibilityFilter: state.visibilityFilter
     };

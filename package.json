@@ -41,10 +41,12 @@
   },
   "dependencies": {
     "angular": "^1.6.1",
+    "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
     "ng-redux": "^3.4.0-beta.1",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4"
   }
 }
