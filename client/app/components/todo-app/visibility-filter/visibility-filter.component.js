@@ -12,7 +12,12 @@ export class Visibility {
     this.filterTitles = FILTER_TITLES;
   }
 
+  $onInit() {
+    this.selectedFilter = SHOW_ALL;
+  }
+
   selectFilter(selectedFilter) {
+    this.selectedFilter = selectedFilter;
     this.onSelectFilter({ filter: selectedFilter });
   }
 }

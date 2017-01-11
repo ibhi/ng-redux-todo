@@ -1,5 +1,6 @@
 <ul class="todo-filters">
   <li class="todo-filter" ng-repeat="(key, value) in $ctrl.filterTitles">
-    <a href="#" class="todo-filter-link" ng-click="$ctrl.selectFilter(key)">{{value}}</a>
+    <a href="#" class="todo-filter-link" ng-click="$ctrl.selectFilter(key)" ng-if="key !== $ctrl.selectedFilter">{{value}}</a>
+    <span ng-if="key === $ctrl.selectedFilter">{{value}}</span>
   </li>
 </ul>
